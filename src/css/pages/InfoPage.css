@@ -1,0 +1,22 @@
+.infos{
+  display:flex;
+  margin-top:20px;
+
+}
+.infos_stadium{
+  display:flex;
+  width:calc(1300px / 2 + 100px);
+  justify-content: space-between;
+  border-right:2px solid gray;
+}
+.master_img{
+  width:90px;
+  height:90px;
+  border-radius: 50px;
+  margin-left:150px;
+}
+.review_head{
+  display:flex;
+  align-items: center;
+  margin:0 0 20px 30px;
+}

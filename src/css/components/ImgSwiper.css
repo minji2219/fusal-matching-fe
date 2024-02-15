@@ -1,0 +1,10 @@
+.swiper-slide{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after
+{
+  font-size: 20px;
+}

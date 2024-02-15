@@ -1,0 +1,44 @@
+ul{
+  height:100px;
+  align-items: center;
+  justify-content:space-between;
+}
+.logo{
+  font-size:30px;
+  text-align: center;
+  font-weight: 700;
+  width:80px;
+  height:80px;
+}
+.info, .reserve{
+  font-size:18px;
+}
+.info:hover, .reserve:hover{
+  font-weight:600;
+}
+.login{
+  width:70px;
+  height:30px;
+  position:relative;
+  top:-30px;
+  right:20px;
+
+}
+button{
+  border-radius: 20px;
+  border :none;
+  width:70px;
+  height:30px;
+  background-color: #D9D9D9;
+}
+button:hover{
+ opacity:0.7; 
+}
+.mypage{
+  position:relative;
+  right:90px;
+  background-color: transparent;
+}
+.mypage:hover{
+  text-decoration: underline;
+}

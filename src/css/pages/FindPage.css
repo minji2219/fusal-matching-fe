@@ -1,0 +1,60 @@
+.findbox{
+  margin:200px auto;
+  width:750px;
+  min-height:500px;
+  border:1px solid rgba(128, 128, 128, 0.397);
+  border-top:none;
+  border-radius: 20px;
+}
+.find_ment{
+  font-weight:600;
+  color:white;
+  text-align: center;
+  padding:10px;
+  background-color:#FFB02E;
+  border-radius:20px 20px 0 0;
+}
+.find_ment2{
+  font-weight:600;
+  color:#8E8E8E;
+  text-align: center;
+  margin:50px 0;
+}
+input{
+  padding-left:15px;
+  margin-left:10px;
+  outline:none;
+  width:400px;
+  height:40px;
+  border-radius:10px;
+  border:1px solid rgba(128, 128, 128, 0.397);
+}
+.find_input{
+  margin-top:30px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  gap:15px;
+}
+
+.btn_find_ok{
+  display:block;
+  width:65px;
+  height:30px;
+  color:white;
+  font-weight:600;
+  background-color: #FFB02E;
+  margin:20px auto;
+  position:absolute;
+  right:-70px;
+}
+.btn_find_next{
+  width:80px;
+  height:40px;
+  color:white;
+  font-weight:600;
+  background-color: #FFB02E;
+}
+.btn_find_next:disabled{
+  background-color: #ffaf2e68;
+}

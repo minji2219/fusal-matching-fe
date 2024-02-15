@@ -1,0 +1,52 @@
+.card{
+  margin:20px auto;
+  width:1200px;
+  height:250px;
+  display:flex;
+}
+.description{
+  margin-left:30px;
+}
+
+.head{
+  display:flex;
+  align-items: center;
+  width:900px;
+}
+.line{
+  flex-grow:1;
+  height:0;
+  border:1px solid rgba(86, 86, 86, 0.381);
+  margin:0 5px 0 5px;
+}
+.price{
+  margin:0px 10px 0 10px;
+  flex-grow:0;
+}
+.name{
+  flex-grow:0;
+  /* width:120px; */
+  font-size: 25px;
+  font-weight:550;
+  margin-bottom:5px;
+}
+.address{
+  font-size:18px;
+  margin-bottom:5px;
+}
+.round_sticker{
+  margin:20px 0;
+  display:flex;
+}
+.holiday,
+.parking,
+.review_count
+{
+  font-size:20px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-right:20px;
+  background-color: rgb(192, 192, 192);
+  border-radius: 50px;
+}

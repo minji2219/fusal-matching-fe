@@ -1,0 +1,56 @@
+.mypage_top{
+  margin-top:50px;
+  display:flex;
+  justify-content: space-between;
+}
+.mypage_top_left{
+  width:600px;
+  height:430px;
+  background-color:#EFF5FF;
+  border-radius: 20px;
+  padding:30px 30px 20px 30px;
+  box-sizing: border-box;
+}
+.icon{
+  margin-left:480px;
+}
+.profile{
+  width:140px;
+  height:140px;
+  background-color: black;
+  border-radius: 50%;
+  
+}
+.introduce{
+  display:flex;
+  margin:20px 0 30px 20px;
+}
+.mypage_list{
+  overflow-y:scroll;
+  display:block;
+  list-style:circle;
+}
+.margin_top_right{
+  width:630px;
+}
+.nowbreakdown_list{
+  height:150px;
+  overflow-y:scroll;
+  display:block;
+  padding:0 0 0 15px;
+  ::marker{
+    content:'■';
+    color:orange;
+  }
+}
+.futurebreakdown_list{
+  height:150px;
+  overflow-y:scroll;
+  display:block;
+  padding:0 0 0 15px;
+  ::marker{
+    content:'■';
+    color:#4287EE;
+  }
+}
+
