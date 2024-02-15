@@ -5,8 +5,8 @@ import { apiGet } from "../helper/api";
 
 const ListPage = () => {
   const [stadiums, setStadiums] = useState(null);
-  const fetchStadiums = () => {
-    const data = apiGet("/stadiums");
+  const fetchStadiums = async () => {
+    const data = await apiGet("stadiums");
     setStadiums(data);
   };
   useEffect(() => {

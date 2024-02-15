@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://6f2b-121-147-100-85.ngrok-free.app";
+const baseUrl = "https://fusal-matching-backend-4808e80af663.herokuapp.com/";
 export const apiGet = async (url) => {
   try {
     const result = await axios.get(baseUrl + url, {
