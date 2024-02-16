@@ -9,6 +9,7 @@ const ListPage = () => {
     const data = await apiGet("stadiums");
     setStadiums(data);
   };
+
   useEffect(() => {
     fetchStadiums();
   }, []);
