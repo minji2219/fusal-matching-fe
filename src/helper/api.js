@@ -6,7 +6,7 @@ export const apiGet = async (url) => {
     const result = await axios.get(baseUrl + url, {
       headers: {
         "Content-Type": `application/json`,
-        "ngrok-skip-browser-warning": "69420",
+        // "ngrok-skip-browser-warning": "69420",
       },
     });
     return result.data;

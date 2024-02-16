@@ -11,19 +11,6 @@ const ListPage = () => {
   };
   useEffect(() => {
     fetchStadiums();
-    // const fetchStadiums = async()=>{
-    //   try{
-    //     const result = await axios.get("https://6f2b-121-147-100-85.ngrok-free.app/stadiums",{
-    //     headers: {
-    //           'Content-Type': `application/json`,
-    //           'ngrok-skip-browser-warning': '69420',
-    //         },
-    //     })
-    //     setStadiums(result.data)
-    //   }catch(err){
-    //     console.log("err입니당~",err)
-    //   }
-    // }
   }, []);
 
   return (

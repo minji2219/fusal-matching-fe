@@ -1,21 +1,17 @@
-
 import { createContext } from "react";
 
-let stadiums =[]
-export const StadiumInfoContext = createContext()
+let stadiums = [];
+export const StadiumInfoContext = createContext();
 
+export default function StadiumInfoProvider({ children }) {
+  const value = stadiums;
+  // console.log(stadiums)
 
-
-export default  function StadiumInfoProvider({children}){
-  
-  const value = stadiums
-  console.log(stadiums)
-
-  return(
+  return (
     <>
-      <StadiumInfoContext.Provider value={{value}}>
+      <StadiumInfoContext.Provider value={{ value }}>
         {children}
       </StadiumInfoContext.Provider>
     </>
-  )
+  );
 }
