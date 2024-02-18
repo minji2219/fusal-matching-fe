@@ -52,10 +52,6 @@ const FindPage = () => {
   };
   return (
     <div>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-      />
       <div className="findbox">
         <div className="find_ment">비밀번호 찾기</div>
         {!nextBtn ? (

@@ -50,10 +50,6 @@ const InfoPage = () => {
   console.log(reviews);
   return (
     <div>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-      />
       <div className="center">
         <ImgSwiper width={1300} height={400} images={images} />
         <hr />

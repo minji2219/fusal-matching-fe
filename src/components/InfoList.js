@@ -27,10 +27,6 @@ const InfoList = ({
   // const {value} = useContext(StadiumInfoContext)
   return (
     <div>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-      />
       <div className="card">
         <ImgSwiper width={320} height={250} images={images} />
         <div className="description">

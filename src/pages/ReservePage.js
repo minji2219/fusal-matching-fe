@@ -86,11 +86,6 @@ const ReservePage = () => {
   return (
     <>
       <div className="center">
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-        />
-
         <div className="reserve_head">
           <div style={{ fontWeight: "700", marginRight: "20px" }}>
             예약 일정
@@ -155,19 +150,15 @@ const ReservePage = () => {
         </div>
         <hr />
 
-        {field?.map((field) => {
-          if (field) {
-            return (
-              <Field
-                fetchField={fetchField}
-                field={field}
-                date={dateValue}
-                startTime={startTimeValue}
-                endTime={endTimeValue}
-              />
-            );
-          }
-        })}
+        {field?.map((field) => (
+          <Field
+            fetchField={fetchField}
+            field={field}
+            date={dateValue}
+            startTime={startTimeValue}
+            endTime={endTimeValue}
+          />
+        ))}
       </div>
     </>
   );
