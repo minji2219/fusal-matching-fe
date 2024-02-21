@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import InfoList from "../components/InfoList";
+import StadiumList from "../components/StadiumList";
 import "../css/pages/ListPage.css";
 import { apiGet } from "../helper/api";
 
@@ -20,7 +20,7 @@ const ListPage = () => {
       <div>구장의 자세한 정보가 궁금하다면? click !</div>
       {stadiums ? (
         stadiums?.map((stadium) => (
-          <InfoList
+          <StadiumList
             key={stadium.id}
             images={stadium.images}
             norest={stadium.norest}
