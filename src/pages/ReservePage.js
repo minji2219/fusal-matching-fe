@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Field from "../components/Field";
 import { apiGet } from "../helper/api";
-import "../css/pages/reservePage.css";
+import "../css/pages/ReservePage.css";
 
 const ReservePage = () => {
   const location = useLocation();
@@ -65,7 +65,7 @@ const ReservePage = () => {
   return (
     <>
       <div className="center">
-        <div className="reserve_head">
+        <div className="reserve__head">
           <div style={{ fontWeight: "700", marginRight: "20px" }}>
             예약 일정
           </div>

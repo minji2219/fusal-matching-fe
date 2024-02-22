@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../css/components/Field.css";
-import Modal from "./Modal";
+import ReserveModal from "./ReserveModal";
 import profile from "../image/ball.png";
 import { changeText } from "../helper/ChangeText";
 
@@ -40,11 +40,13 @@ const Field = ({ field, fetchField }) => {
             <MatchingTeam team={field?.team[1]} />
           </>
         );
+      } else if (field.allRental) {
+        return <MatchingTeam team={field?.team[0]} />;
       } else {
         return (
           <>
             <MatchingTeam team={field?.team[0]} />
-            <button className="matching__btn" onClick={MatchingReserve}>
+            <button className="matching__btn" onClick={matchingReserve}>
               매칭 신청
             </button>
           </>
@@ -53,10 +55,10 @@ const Field = ({ field, fetchField }) => {
     } else {
       return (
         <>
-          <button className="matching__btn" onClick={MatchingReserve}>
+          <button className="matching__btn" onClick={matchingReserve}>
             매칭 신청
           </button>
-          <button className="matching__btn" onClick={MatchingReserve}>
+          <button className="matching__btn" onClick={matchingReserve}>
             매칭 신청
           </button>
         </>
@@ -64,12 +66,12 @@ const Field = ({ field, fetchField }) => {
     }
   };
 
-  const MatchingReserve = () => {
-    setReserveSort("매칭 신청");
+  const matchingReserve = () => {
+    setReserveSort("matching");
     setModalState(true);
   };
-  const WholdReserve = () => {
-    setReserveSort("전체 대여");
+  const wholeReserve = () => {
+    setReserveSort("allRental");
     setModalState(true);
   };
 
@@ -79,28 +81,19 @@ const Field = ({ field, fetchField }) => {
       <div className="field__background">
         <div className="field__img">{fieldOption()}</div>
       </div>
-      {field.team ? (
-        field.allRental && (
-          <div className="reserve--complete">* 예약이 완료된 구장입니다.</div>
-        )
-      ) : (
-        <button className="whole--reserve__btn" onClick={WholdReserve}>
+      {!field.team && (
+        <button className="whole--reserve__btn" onClick={wholeReserve}>
           전체 대여
         </button>
       )}
 
       {modalState ? (
         <>
-          <Modal
-            title="이 일정으로 예약할까요?"
+          <ReserveModal
             fetchField={fetchField}
             field={field}
             setModalState={setModalState}
             reserveSort={reserveSort}
-            fieldName={field.fieldNum}
-            date={field.matchingDate}
-            startTime={field.startTime}
-            endTime={field.endTime}
           />
           <div
             style={{
