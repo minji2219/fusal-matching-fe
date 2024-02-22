@@ -3,12 +3,13 @@ body {
   font-family: "Gowun Dodum", sans-serif;
   font-style: normal;
   /* font-weight: 600; */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 button {
   font-family: "Gowun Dodum", sans-serif;
   font-style: normal;
   font-weight: 400;
+  cursor: pointer;
 }
 ul {
   display: flex;

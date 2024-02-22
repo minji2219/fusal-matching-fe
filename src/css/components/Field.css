@@ -1,79 +1,83 @@
-.field{
-  margin-top:80px;
-  display:flex;
+.field {
+  margin-top: 80px;
+  display: flex;
 }
-.field_name{
-  background-color: #FFD89D;
-  font-size:1.2rem;
-  font-weight:700;
-  width:70px;
-  height:30px;
-  padding:5px;
-  margin-right:10px;
+.field__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffd89d;
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: 60px;
+  height: 35px;
+  padding: 5px;
   border-radius: 20px 0px 0 20px;
-  text-align: center;
+  position: relative;
+  top: 15px;
 }
-.field_background{
-  width:750px;
-  height:350px;
+.field__background {
+  width: 750px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
-  text-align: center;
-  background-color: #FFD89D;
+  background-color: #ffd89d;
+  position: relative;
 }
-.field_img{
-  margin-top:25px;
-  width:700px;
-  height:300px;
+.field__img {
+  background-image: url("../../image/Group 84.png");
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 300px;
+  width: 700px;
+  height: 300px;
 }
-.field_main{
-  position:relative;
+.matching__btn {
+  width: 100px;
+  height: 40px;
+  font-weight: 550;
+  font-size: 1.1rem;
 }
-.matching_btn{
-  width:100px;
-  height:40px;
-  font-weight:550;
-  font-size:1.1rem;
-  position:absolute;
-  top: 160px;
-  right:145px;
-}
-.matching_team{
-  position:absolute;
-  left:140px;
-  top:120px;
+.matching__team {
   border-radius: 50%;
-  width:110px;
-  height:110px;
-  background-color: #D9D9D9;
+  width: 110px;
+  height: 110px;
+  background-color: #d9d9d9;
 }
-.complete{
-  margin:310px 0 0 10px;
-  color:red;
-  font-weight:700;
+.matcing__team--profile {
+  margin: 15px;
+  width: 80px;
+  height: 80px;
 }
-.whole_btn{
-  background-color: #4287EE;
-  width:100px;
-  height:40px;
-  color:white;
-  font-weight:500;
-  font-size:1.1rem;
-  margin: 310px 0 0 10px;
-}
-.teaminfo{
-  text-align:start;
-  box-sizing: border-box;
-  margin-top:15px;
-  padding:10px 0 0 10px ;
-  min-width:200px;
-  height:90px;
+.matcing__team--info {
+  padding: 10px;
+  min-width: 150px;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  color:white;
+  color: white;
 }
-.complete_bg{
-  width:750px;
-  height:350px;
-  background-color:rgba(128, 128, 128, 0.26);
-  position:absolute;
+.reserve--complete {
+  margin: 310px 0 0 10px;
+  color: red;
+  font-weight: 700;
+}
+.whole--reserve__btn {
+  background-color: #4287ee;
+  width: 100px;
+  height: 40px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 310px 0 0 10px;
+}
+.complete_bg {
+  width: 750px;
+  height: 350px;
+  background-color: rgba(128, 128, 128, 0.26);
+  position: absolute;
 }
