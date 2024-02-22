@@ -138,7 +138,7 @@ const ReservePage = () => {
             (field) => field && <Field fetchField={fetchField} field={field} />
           )
         ) : (
-          <div className="">일정을 선택하세요.</div>
+          <div className="select__ment">일정을 선택하세요.</div>
         )}
       </div>
     </>
