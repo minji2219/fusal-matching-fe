@@ -29,10 +29,11 @@ function App() {
           <Route index element={<ListPage />} />
           <Route path="/info/:index" element={<InfoPage />} />
           <Route path="/reserve" element={<ReservePage />} />
-          <Route path="/mypage" element={<MyPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/membership" element={<MembershipPage />} />
           <Route path="/pwfind" element={<FindPage />} />
+          {/* TODO:mypage는 로그인 상태일때만 보이게 예외처리하기 */}
+          <Route path="/mypage" element={<MyPage />} />
         </Route>
       </Routes>
     </div>

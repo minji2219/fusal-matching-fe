@@ -4,7 +4,7 @@
   margin-top: 50px;
 }
 .loading {
-  color: blue;
+  color: gray;
   animation: load 1s linear infinite;
 }
 
