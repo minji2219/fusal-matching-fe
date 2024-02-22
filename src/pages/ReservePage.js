@@ -66,18 +66,15 @@ const ReservePage = () => {
     <>
       <div className="center">
         <div className="reserve__head">
-          <div style={{ fontWeight: "700", marginRight: "20px" }}>
-            예약 일정
-          </div>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div className="reserve__title">예약 일정</div>
+          <div className="select__box">
             <span
               style={{ fontSize: "30px", marginRight: "10px" }}
-              className="material-symbols-outlined"
+              className="select__icon material-symbols-outlined"
             >
               sports_soccer
             </span>
             <select
-              style={{ fontSize: "16px" }}
               value={stadiumValue}
               onChange={(e) => setStadiumValue(e.target.value)}
             >
@@ -89,7 +86,7 @@ const ReservePage = () => {
             </select>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div className="select__box">
             <span
               style={{ fontSize: "30px", marginRight: "10px" }}
               className="material-symbols-outlined"
@@ -97,7 +94,6 @@ const ReservePage = () => {
               calendar_month
             </span>
             <select
-              style={{ fontSize: "16px" }}
               value={dateValue}
               onChange={(e) => setDateValue(e.target.value)}
             >
@@ -109,7 +105,7 @@ const ReservePage = () => {
             </select>
           </div>
           {/* TODO:날짜 조회 형식 바뀌면 바꾸기 */}
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div className="select__box">
             <span
               style={{ fontSize: "30px", marginRight: "10px" }}
               className="material-symbols-outlined"
@@ -121,7 +117,6 @@ const ReservePage = () => {
                 setStartTimeValue(e.target.value);
               }}
               value={startTimeValue}
-              style={{ fontSize: "16px" }}
             >
               {times?.map((time) => (
                 <option key={time}>{time}</option>
@@ -138,8 +133,12 @@ const ReservePage = () => {
         </div>
         <hr />
 
-        {fields?.map(
-          (field) => field && <Field fetchField={fetchField} field={field} />
+        {fields ? (
+          fields.map(
+            (field) => field && <Field fetchField={fetchField} field={field} />
+          )
+        ) : (
+          <div className="">일정을 선택하세요.</div>
         )}
       </div>
     </>

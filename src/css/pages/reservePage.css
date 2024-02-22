@@ -3,8 +3,16 @@
   align-items: center;
   justify-content: space-between;
 }
+.reserve__title {
+  font-weight: 600;
+}
+.select__box {
+  display: flex;
+  align-items: center;
+}
 select {
   width: 150px;
   height: 35px;
+  font-size: 16px;
   text-align: center;
 }
