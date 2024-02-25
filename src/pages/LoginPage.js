@@ -4,6 +4,7 @@ import ListPage from "../pages/ListPage.js";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
+import { apiPost } from "../helper/api.js";
 
 const LoginPage = () => {
   const [id, setId] = useState();
@@ -22,26 +23,32 @@ const LoginPage = () => {
 
   let token;
   const fetchLogin = async () => {
-    try {
-      const result = await axios.post(
-        "https://6f2b-121-147-100-85.ngrok-free.app/teams/login",
-        {
-          id: id,
-          password: pw,
-          headers: {
-            "Content-Type": `application/json`,
-            "ngrok-skip-browser-warning": "69420",
-          },
-        }
-      );
-      token = result.data.accessToken;
-      setAccessToken(token);
-      setIdData(result.data.id);
+    const postData = {
+      id: id,
+      password: pw,
+    };
+    const data = await apiPost("teams/login", postData);
+    token = data.accessToken;
+    setAccessToken(token);
+    setIdData(data.id);
+    checkLogin();
+    // try {
+    //   const result = await axios.post(
+    //     "https://6f2b-121-147-100-85.ngrok-free.app/teams/login",
+    //     {
+    //       id: id,
+    //       password: pw,
+    //       headers: {
+    //         "Content-Type": `application/json`,
+    //         "ngrok-skip-browser-warning": "69420",
+    //       },
+    //     }
+    //   );
 
-      checkLogin();
-    } catch (err) {
-      console.log("err입니당~", err);
-    }
+    //   checkLogin();
+    // } catch (err) {
+    //   console.log("err입니당~", err);
+    // }
   };
 
   const checkLogin = () => {

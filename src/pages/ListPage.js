@@ -19,7 +19,7 @@ const ListPage = () => {
     <div className="center">
       <div>구장의 자세한 정보가 궁금하다면? click !</div>
       {stadiums ? (
-        stadiums?.map((stadium) => (
+        stadiums.map((stadium) => (
           <StadiumList
             key={stadium.id}
             images={stadium.images}

@@ -87,7 +87,7 @@ const Field = ({ field, fetchField }) => {
         </button>
       )}
 
-      {modalState ? (
+      {modalState && (
         <>
           <ReserveModal
             fetchField={fetchField}
@@ -107,8 +107,6 @@ const Field = ({ field, fetchField }) => {
             }}
           ></div>
         </>
-      ) : (
-        <></>
       )}
     </div>
   );

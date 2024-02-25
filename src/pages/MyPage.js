@@ -8,6 +8,7 @@ import { changeText } from "../helper/ChangeText";
 import profile from "../image/ball.png";
 import { FutureBDContext } from "../context/FutureBreakDownContext";
 import MypageBottom from "../components/MypageBottom";
+import { apiGet } from "../helper/api";
 
 const MyPage = () => {
   const { accessToken, idData } = useContext(UserContext);
@@ -19,34 +20,16 @@ const MyPage = () => {
   const { futureBD, BDtitle } = useContext(FutureBDContext);
 
   const teamFetch = async () => {
-    try {
-      const result = await axios.get(
-        `https://6f2b-121-147-100-85.ngrok-free.app/teams?id=${idData}`,
-        {
-          headers: {
-            "Content-Type": `application/json`,
-            "ngrok-skip-browser-warning": "69420",
-          },
-        }
-      );
-      setTeam(result.data);
-    } catch (err) {
-      console.log("err입니당~", err);
-    }
+    const data = await apiGet(`teams?id=${idData}`);
+    setTeam(data);
   };
   useEffect(() => {
     teamFetch();
   }, []);
 
-  console.log(team);
-
   return (
     <>
       <div className="center">
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-        />
         <div className="mypage_top">
           <div className="mypage_top_left">
             <div className="icon">

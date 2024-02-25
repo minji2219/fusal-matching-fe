@@ -2,7 +2,7 @@ import "./App.css";
 import MenuBar from "./components/MenuBar";
 import { Outlet, Route, Routes } from "react-router-dom";
 import ListPage from "./pages/ListPage";
-import InfoPage from "./pages/InfoPage";
+import DetailPage from "./pages/DetailPage";
 import ReservePage from "./pages/ReservePage";
 import MyPage from "./pages/MyPage";
 import LoginPage from "./pages/LoginPage";
@@ -27,7 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<ListPage />} />
-          <Route path="/info/:index" element={<InfoPage />} />
+          <Route path="/info/:index" element={<DetailPage />} />
           <Route path="/reserve" element={<ReservePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/membership" element={<MembershipPage />} />

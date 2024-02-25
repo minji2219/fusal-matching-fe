@@ -8,7 +8,6 @@ const ReserveModal = ({ fetchField, reserveSort, setModalState, field }) => {
   const { rightLogin, idData } = useContext(UserContext);
   const [modalTitle, setModalTitle] = useState("이 일정으로 예약할까요?");
   const [headColor, setHeadColor] = useState("#EE8042"); //오렌지색
-  const [reserveComplete, setReserveComplete] = useState(false);
   const navigate = useNavigate();
 
   const applyMatching = async () => {
@@ -39,10 +38,9 @@ const ReserveModal = ({ fetchField, reserveSort, setModalState, field }) => {
           //아무도 신청하지 않은 필드에 매칭신청을 할때
           createMatching();
         }
+        fetchField();
         setModalTitle("예약이 완료되었습니다 !");
         setHeadColor("#4287EE");
-        setReserveComplete(true);
-        fetchField();
       } catch {
         alert("에러 발생");
       }
@@ -73,7 +71,7 @@ const ReserveModal = ({ fetchField, reserveSort, setModalState, field }) => {
         <div style={{ marginBottom: "20px" }}>
           {field.startTime} ~ {field.endTime}
         </div>
-        {reserveComplete ? (
+        {headColor === "#4287EE" ? (
           <div>My Page에서 다시 확인할 수 있습니다.</div>
         ) : (
           <div>
