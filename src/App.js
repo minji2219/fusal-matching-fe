@@ -20,7 +20,7 @@ const Layout = () => {
   );
 };
 function App() {
-  const { rightLogin } = useContext(UserContext);
+  const accessToken = localStorage.getItem("access_token");
   return (
     <div className="App">
       <link
@@ -29,23 +29,17 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Layout />}>
-          {rightLogin ? (
-            <>
-              <Route path="/mypage" element={<MyPage />} />
-              <Route path="*" element={<Navigate replace to="/" />} />
-            </>
+          <Route index element={<ListPage />} />
+          <Route path="/info/:index" element={<DetailPage />} />
+          <Route path="/reserve" element={<ReservePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/membership" element={<MembershipPage />} />
+          <Route path="/pwfind" element={<FindPage />} />
+          {accessToken ? (
+            <Route path="/mypage" element={<MyPage />} />
           ) : (
-            <>
-              <Route index element={<ListPage />} />
-              <Route path="/info/:index" element={<DetailPage />} />
-              <Route path="/reserve" element={<ReservePage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/membership" element={<MembershipPage />} />
-              <Route path="/pwfind" element={<FindPage />} />
-              <Route path="*" element={<Navigate replace to="/" />} />
-            </>
+            <Route path="*" element={<Navigate replace to="/" />} />
           )}
-          {/* TODO:mypage는 로그인 상태일때만 보이게 예외처리하기 */}
         </Route>
       </Routes>
     </div>

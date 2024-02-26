@@ -1,12 +1,16 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import "../css/components/MenuBar.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
+import { Link, useLocation } from "react-router-dom";
 
 const MenuBar = () => {
-  const { rightLogin, setRightLogin } = useContext(UserContext);
-  const navigate = useNavigate();
+  const accessToken = localStorage.getItem("access_token");
   const location = useLocation();
+
+  const logout = () => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("userId");
+    window.location.replace("/");
+  };
 
   return (
     <ul className="menubar">
@@ -32,29 +36,17 @@ const MenuBar = () => {
         </Link>
       </li>
 
-      {rightLogin ? (
+      {accessToken ? (
         <div>
           <Link to="/mypage">
             <button className="mypage__btn">Mypage</button>
           </Link>
-          <li
-            className="login__btn"
-            //TODO:router 예외처리시 삭제될 코드
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            <button
-              onClick={() => {
-                setRightLogin(false);
-              }}
-            >
-              로그아웃
-            </button>
+          <li className="menu--login__btn">
+            <button onClick={logout}>로그아웃</button>
           </li>
         </div>
       ) : (
-        <li className="login__btn">
+        <li className="menu--login__btn">
           <Link to="login">
             <button>로그인</button>
           </Link>

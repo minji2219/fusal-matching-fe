@@ -1,125 +1,84 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../css/pages/LoginPage.css";
-import ListPage from "../pages/ListPage.js";
 import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
-import axios from "axios";
 import { apiPost } from "../helper/api.js";
 
 const LoginPage = () => {
-  const [id, setId] = useState();
-  const [pw, setPw] = useState();
-  const [hidden, setHidden] = useState("hidden");
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
+  const [loginErrDisplay, setLoginErrDisplay] = useState("none");
   const navigate = useNavigate();
-  const { rightLogin, setRightLogin, setAccessToken, setIdData, idData } =
-    useContext(UserContext);
 
-  const saveId = (e) => {
-    setId(e.target.value);
-  };
-  const savePw = (e) => {
-    setPw(e.target.value);
-  };
-
-  let token;
-  const fetchLogin = async () => {
+  const login = async () => {
     const postData = {
       id: id,
       password: pw,
     };
     const data = await apiPost("teams/login", postData);
-    token = data.accessToken;
-    setAccessToken(token);
-    setIdData(data.id);
-    checkLogin();
-    // try {
-    //   const result = await axios.post(
-    //     "https://6f2b-121-147-100-85.ngrok-free.app/teams/login",
-    //     {
-    //       id: id,
-    //       password: pw,
-    //       headers: {
-    //         "Content-Type": `application/json`,
-    //         "ngrok-skip-browser-warning": "69420",
-    //       },
-    //     }
-    //   );
-
-    //   checkLogin();
-    // } catch (err) {
-    //   console.log("err입니당~", err);
-    // }
-  };
-
-  const checkLogin = () => {
-    if (token) {
-      setRightLogin(true);
+    if (data) {
+      localStorage.setItem("access_token", data.accessToken);
+      localStorage.setItem("userId", data.id);
+      navigate("/");
     } else {
-      setRightLogin(false);
-      setHidden("visible");
+      setLoginErrDisplay("block");
     }
   };
+
   return (
-    <div>
-      {rightLogin ? (
-        navigate("/")
-      ) : (
-        <>
-          <div className="loginbox">
-            <div className="login_ment">예약은 로그인 필요해요!</div>
-            <div className="login_input">
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span
-                  style={{ fontSize: "30px" }}
-                  className="material-symbols-outlined"
-                >
-                  person
-                </span>
-                <input
-                  placeholder="팀 아이디"
-                  onChange={(e) => {
-                    saveId(e);
-                  }}
-                />
-              </div>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span
-                  style={{ fontSize: "30px" }}
-                  className="material-symbols-outlined"
-                >
-                  lock
-                </span>
-                <input
-                  type="password"
-                  placeholder="팀 비밀번호"
-                  onChange={(e) => {
-                    savePw(e);
-                  }}
-                />
-              </div>
-            </div>
-            <div>
-              <button className="btn_make">
-                <Link to="/membership" style={{ color: "blue" }}>
-                  회원가입
-                </Link>
-              </button>
-              <span>/</span>
-              <button className="btn_find">
-                <Link to="/pwfind" style={{ color: "blue" }}>
-                  비밀번호 찾기
-                </Link>
-              </button>
-            </div>
-            <div className="login_err" style={{ visibility: `${hidden}` }}>
-              아이디 또는 비밀번호를 잘못 입력했습니다.
-            </div>
-            <button className="btn_login" onClick={fetchLogin}>
-              로그인
-            </button>
-          </div>
-        </>
-      )}
+    <div className="login__box">
+      <div className="login__head">예약은 로그인 필요해요!</div>
+      <div className="login__content">
+        <div className="input__icon">
+          <span
+            style={{ fontSize: "30px" }}
+            className="material-symbols-outlined"
+          >
+            person
+          </span>
+          <input
+            placeholder="팀 아이디"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+          />
+        </div>
+        <div className="input__icon">
+          <span
+            style={{ fontSize: "30px" }}
+            className="material-symbols-outlined"
+          >
+            lock
+          </span>
+          <input
+            type="password"
+            placeholder="팀 비밀번호"
+            value={pw}
+            onChange={(e) => setPw(e.target.value)}
+          />
+        </div>
+
+        <div className="login__btns">
+          <button className="membership__btn">
+            <Link to="/membership" style={{ color: "blue" }}>
+              회원가입
+            </Link>
+          </button>
+          <span>/</span>
+          <button className="find__btn">
+            <Link to="/pwfind" style={{ color: "blue" }}>
+              비밀번호 찾기
+            </Link>
+          </button>
+        </div>
+        <div
+          className="login__error-ment"
+          style={{ display: `${loginErrDisplay}` }}
+        >
+          아이디 또는 비밀번호를 잘못 입력했습니다.
+        </div>
+        <button className="login__btn" onClick={login}>
+          로그인
+        </button>
+      </div>
     </div>
   );
 };

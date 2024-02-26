@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "../css/components/ReserveModal.css";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
 import { apiPost } from "../helper/api";
 
 const ReserveModal = ({ fetchField, reserveSort, setModalState, field }) => {
-  const { rightLogin, idData } = useContext(UserContext);
+  const accessToken = localStorage.getItem("access_token");
+  const userId = localStorage.getItem("userId");
   const [modalTitle, setModalTitle] = useState("이 일정으로 예약할까요?");
   const [headColor, setHeadColor] = useState("#EE8042"); //오렌지색
   const navigate = useNavigate();
@@ -13,14 +13,14 @@ const ReserveModal = ({ fetchField, reserveSort, setModalState, field }) => {
   const applyMatching = async () => {
     const postData = {
       matchingId: field.matchingId,
-      teamId: idData,
+      teamId: userId,
     };
     await apiPost("matching/apply", postData);
   };
 
   const createMatching = async () => {
     const postData = {
-      team: idData,
+      team: userId,
       stadium: field.stadiumId,
       field: field.id,
       allRental: reserveSort === "allRental" ? true : false,
@@ -28,15 +28,15 @@ const ReserveModal = ({ fetchField, reserveSort, setModalState, field }) => {
     await apiPost("matching/create", postData);
   };
 
-  const matchingReserve = () => {
-    if (rightLogin) {
+  const matchingReserve = async () => {
+    if (accessToken) {
       try {
         if (field.team) {
           //한팀이 신청한 필드에 매칭신청을 할때
-          applyMatching();
+          await applyMatching();
         } else {
           //아무도 신청하지 않은 필드에 매칭신청을 할때
-          createMatching();
+          await createMatching();
         }
         fetchField();
         setModalTitle("예약이 완료되었습니다 !");
