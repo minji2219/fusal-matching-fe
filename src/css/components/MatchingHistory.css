@@ -1,0 +1,52 @@
+.now-matching {
+  height: 150px;
+  overflow-y: scroll;
+  padding: 0 0 0 20px;
+  ::marker {
+    content: "■ ";
+    color: orange;
+  }
+}
+.future-matching {
+  height: 150px;
+  overflow-y: scroll;
+  padding: 0 0 0 20px;
+  ::marker {
+    content: "■ ";
+    color: #4287ee;
+  }
+}
+.matching__list--item {
+  margin-right: 3px;
+}
+.matching__list {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: solid 1px #d9d9d9;
+}
+.now-matching .waiting__btn {
+  color: orange;
+  background-color: white;
+  border: 1px solid orange;
+  margin: 0 5px;
+  cursor: auto;
+}
+.now-matching .waiting__btn:hover {
+  opacity: 1;
+}
+.now-matching .cancel__btn {
+  color: white;
+  border: 1px solid orange;
+  background-color: orange;
+}
+.future-matching .review--write__btn {
+  margin: 0 5px;
+  color: white;
+  background-color: #4287ee;
+}
+.future-matching .review--read__btn {
+  margin: 0 5px;
+  color: #4287ee;
+  background-color: white;
+  border: 1px solid #4287ee;
+}

@@ -1,56 +1,75 @@
-.mypage_top{
-  margin-top:50px;
-  display:flex;
-  justify-content: space-between;
+.mypage {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
 }
-.mypage_top_left{
-  width:600px;
-  height:430px;
-  background-color:#EFF5FF;
+.mypage__teaminfo {
+  background-color: #eff5ff;
   border-radius: 20px;
-  padding:30px 30px 20px 30px;
-  box-sizing: border-box;
+  padding: 20px 30px;
 }
-.icon{
-  margin-left:480px;
+.mypage__icons {
+  text-align: end;
+  cursor: pointer;
 }
-.profile{
-  width:140px;
-  height:140px;
-  background-color: black;
+.mypage__teamintro {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  margin: 20px 60px 20px 30px;
+}
+.team__profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 130px;
+  background-color: #5f5f5f;
   border-radius: 50%;
-  
 }
-.introduce{
-  display:flex;
-  margin:20px 0 30px 20px;
+.team__content {
+  margin-bottom: 8px;
 }
-.mypage_list{
-  overflow-y:scroll;
-  display:block;
-  list-style:circle;
+.team__key {
+  display: inline-block;
+  width: 60px;
+  border-right: 2px solid #adadad80;
+  margin-right: 7px;
 }
-.margin_top_right{
-  width:630px;
+.mypage__icon {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
 }
-.nowbreakdown_list{
-  height:150px;
-  overflow-y:scroll;
-  display:block;
-  padding:0 0 0 15px;
-  ::marker{
-    content:'■';
-    color:orange;
+.team__awards__list {
+  max-height: 100px;
+  overflow-y: scroll;
+  list-style: circle;
+  margin: 0;
+  padding: 0 20px;
+}
+.margin_top_right {
+  width: 630px;
+}
+.nowbreakdown_list {
+  height: 150px;
+  overflow-y: scroll;
+  display: block;
+  padding: 0 0 0 15px;
+  ::marker {
+    content: "■";
+    color: orange;
   }
 }
-.futurebreakdown_list{
-  height:150px;
-  overflow-y:scroll;
-  display:block;
-  padding:0 0 0 15px;
-  ::marker{
-    content:'■';
-    color:#4287EE;
+.futurebreakdown_list {
+  height: 150px;
+  overflow-y: scroll;
+  display: block;
+  padding: 0 0 0 15px;
+  ::marker {
+    content: "■";
+    color: #4287ee;
   }
 }
-

@@ -135,7 +135,10 @@ const ReservePage = () => {
 
         {fields ? (
           fields.map(
-            (field) => field && <Field fetchField={fetchField} field={field} />
+            (field) =>
+              field && (
+                <Field key={field.id} fetchField={fetchField} field={field} />
+              )
           )
         ) : (
           <div className="select__ment">일정을 선택하세요.</div>

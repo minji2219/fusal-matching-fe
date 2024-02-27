@@ -1,24 +1,31 @@
-export const changeText = (num)=>{
-
-  num = Number(num)
-  num = Math.round(num)
-  switch (num){
+export const changeText = (num = 1) => {
+  num = Number(num);
+  num = Math.round(num);
+  let level;
+  switch (num) {
     case 1:
-      return "최하";
+      level = "최하";
+      break;
     case 2:
-      return "하";
+      level = "하";
+      break;
     case 3:
-      return "중하";
+      level = "중하";
+      break;
     case 4:
-      return "중";
+      level = "중";
+      break;
     case 5:
-      return "중상";
+      level = "중상";
+      break;
     case 6:
-      return "상";
+      level = "상";
+      break;
     case 7:
-      return "최상";
+      level = "최하";
+      break;
     default:
-      console.log(num,'switch문 error입니다.')
+      console.log(num, "switch문 error입니다.");
   }
-}
-
+  return level;
+};

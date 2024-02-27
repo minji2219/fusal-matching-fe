@@ -1,119 +1,113 @@
-.mypage_bottom_toggle{
-  background-color:#F5F5F5;
-  width:1400px;
-  height:300px;
-  position:fixed;
-  bottom:0;
-  border-radius: 30px 30px 0 0;
-  margin-left:-50px;
-}
-.toggle_btn{
-  width:100px;
-  height:10px;
-  background-color: #D9D9D9;
-  border-radius: 10px;
-  position:absolute;
-  cursor:pointer;
-  top:20px;
-  left:600px;
-}
-.mypage_bottom{
-  background-color:#DEE7F340;
-  width:100%;
-  height:300px;
-  display:flex;
-  position:fixed;
-  bottom:0;
-}
-.stadium_review{
-  margin-left:50px;
-  width:650px;
-}
-.team_review{
-  margin-left:50px;
-  width:800px;
-
-}
-.bottom_ul{
-  display:block;
-  margin-top:40px;
-}
-
-.bottom_ul_ul{
-  padding:0;
-  height:auto;
-}
-
-.review_mark{
-  background-Color:#4287EE;
-  color:white;
-  border-radius:20px;
-  padding:7px;
-  margin:10px;
-}
-.title{
-  font-weight: 700;
-  font-size:1.2rem;
-  margin-right:50px;
-}
-.points{
-  position: relative;
-  display:flex;
-}
-.point{
-  margin-top:30px;
-  display:flex;
+.mypage__toggle {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 50px;
+  padding: 30px 0;
+  background-color: #f5f5f5;
+  border-radius: 30px 30px 0 0;
+  position: fixed;
+  bottom: 0;
 }
-
-.radio_input{
-  appearance:none;
-  margin:0px 45px 5px 0px;
-  border-radius: 50%;
-  background-color: #D9D9D9;
-  border:none;
-}
-.radio_input:checked{
-  background-color: #4287EE;
-}
-
-.pointbar{
-  width:400px;
-  border:.5px solid #D9D9D9;
-  position:absolute;
-  top:35px;
-  left:120px;
-  z-index:-2;
-}
-.point_ment{
-  display:flex;
-  font-size:0.7rem;
-  color:#919191;
-  gap:115px;
-  margin-left:80px;
-}
-.pointbar2{
-  width:400px;
-  border:.5px solid #D9D9D9;
-  position:absolute;
-  top:110px;
-  left:120px;
-  z-index: -2;
-}
-.point_ment2{
-  display:flex;
-  font-size:0.7rem;
-  color:#919191;
-  gap:135px;
-  margin-left:90px;
-}
-.reveiw_btn{
-  width:80px;
-  height:100px;
-  margin:30px 0 0 8px;
-  background-color: #4287EE;
-  color:white;
-  font-size:1.2rem;
-  font-weight: 700;
+.toggle__btn {
+  width: 100px;
+  height: 10px;
+  background-color: #d9d9d9;
   border-radius: 10px;
+  cursor: pointer;
+}
+.toggle__content {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  margin: 0 50px;
+}
+.mypage__toggle .review__head {
+  border-bottom: 1px solid gray;
+  padding-bottom: 3px;
+  margin-bottom: 30px;
+}
+.review__mark {
+  background-color: #4287ee;
+  color: white;
+  border-radius: 20px;
+  padding: 7px;
+}
+/* stadium__review */
+.stadium__review--writer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+}
+.stadium__review--writer textarea {
+  width: 350px;
+  height: 50px;
+  padding: 15px;
+}
+.review__btn {
+  background-color: #4287ee;
+  color: white;
+}
+.team__review--content {
+  display: flex;
+}
+.skill__check,
+.manner__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skill__title,
+.manner__title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-right: 50px;
+}
+.input__radio {
+  appearance: none;
+  margin: 0px 45px 5px 0px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  border: none;
+}
+.input__radio:checked {
+  background-color: #4287ee;
+}
+.skill__point--ment {
+  display: flex;
+  font-size: 0.7rem;
+  color: #919191;
+  gap: 115px;
+  margin-left: 90px;
+  margin-bottom: 10px;
+}
+.manner__point--ment {
+  display: flex;
+  font-size: 0.7rem;
+  color: #919191;
+  gap: 135px;
+  margin-left: 95px;
+}
+.team__review--content .review__btn {
+  margin: 0 15px;
+}
+/* copyright */
+.mypage__copyright {
+  background-color: #dee7f340;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  font-size: 1.2rem;
+  padding: 20px 30px;
+  line-height: 2rem;
+}
+.copyright__title {
+  font-weight: 600;
+  margin-right: 10px;
+}
+.copyright {
+  margin-top: 30px;
+  color: #4287ee;
 }
