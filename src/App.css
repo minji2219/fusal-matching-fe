@@ -12,7 +12,6 @@ button {
   border: none;
   cursor: pointer;
   padding: 5px 15px;
-  /* min-width: 80px; */
 }
 button:hover {
   opacity: 0.7;

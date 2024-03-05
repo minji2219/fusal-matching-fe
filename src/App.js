@@ -8,8 +8,6 @@ import MyPage from "./pages/MyPage";
 import LoginPage from "./pages/LoginPage";
 import MembershipPage from "./pages/MembershipPage";
 import FindPage from "./pages/FindPage";
-import { useContext } from "react";
-import { UserContext } from "./context/UserContext";
 
 const Layout = () => {
   return (

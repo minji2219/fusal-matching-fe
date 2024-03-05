@@ -25,5 +25,6 @@ export const apiPost = async (url, postData) => {
     return result.data;
   } catch (e) {
     console.log(e);
+    throw new Error();
   }
 };
