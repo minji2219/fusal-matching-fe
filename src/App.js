@@ -7,7 +7,7 @@ import ReservePage from "./pages/ReservePage";
 import MyPage from "./pages/MyPage";
 import LoginPage from "./pages/LoginPage";
 import MembershipPage from "./pages/MembershipPage";
-import FindPage from "./pages/FindPage";
+import PwFindPage from "./pages/PwfindPage";
 
 const Layout = () => {
   return (
@@ -32,7 +32,7 @@ function App() {
           <Route path="/reserve" element={<ReservePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/membership" element={<MembershipPage />} />
-          <Route path="/pwfind" element={<FindPage />} />
+          <Route path="/pwfind" element={<PwFindPage />} />
           {accessToken ? (
             <Route path="/mypage" element={<MyPage />} />
           ) : (

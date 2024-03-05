@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../css/pages/MembershipPage.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { apiPost } from "../helper/api";
 
@@ -98,7 +97,6 @@ const MembershipPage = () => {
     }
   };
   return (
-    // TODO:폼에 넣기(로그인도)
     <div className="membership__box">
       <div className="memebership__head">회원가입</div>
       <form className="membership__content" onSubmit={handleMembership}>
