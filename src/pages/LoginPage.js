@@ -9,17 +9,18 @@ const LoginPage = () => {
   const [loginErrDisplay, setLoginErrDisplay] = useState("none");
   const navigate = useNavigate();
 
-  const login = async () => {
+  const login = async (e) => {
+    e.preventDefault();
     const postData = {
       id: id,
       password: pw,
     };
-    const data = await apiPost("teams/login", postData);
-    if (data) {
+    try {
+      const data = await apiPost("teams/login", postData);
       localStorage.setItem("access_token", data.accessToken);
       localStorage.setItem("userId", data.id);
       navigate("/");
-    } else {
+    } catch (e) {
       setLoginErrDisplay("block");
     }
   };
@@ -27,7 +28,7 @@ const LoginPage = () => {
   return (
     <div className="login__box">
       <div className="login__head">예약은 로그인 필요해요!</div>
-      <div className="login__content">
+      <form className="login__content" onSubmit={login}>
         <div className="input__icon">
           <span
             style={{ fontSize: "30px" }}
@@ -57,17 +58,13 @@ const LoginPage = () => {
         </div>
 
         <div className="login__btns">
-          <button className="membership__btn">
-            <Link to="/membership" style={{ color: "blue" }}>
-              회원가입
-            </Link>
-          </button>
-          <span>/</span>
-          <button className="find__btn">
-            <Link to="/pwfind" style={{ color: "blue" }}>
-              비밀번호 찾기
-            </Link>
-          </button>
+          <Link to="/membership" style={{ color: "blue" }}>
+            회원가입
+          </Link>
+          <span> / </span>
+          <Link to="/pwfind" style={{ color: "blue" }}>
+            비밀번호 찾기
+          </Link>
         </div>
         <div
           className="login__error-ment"
@@ -75,10 +72,8 @@ const LoginPage = () => {
         >
           아이디 또는 비밀번호를 잘못 입력했습니다.
         </div>
-        <button className="login__btn" onClick={login}>
-          로그인
-        </button>
-      </div>
+        <button className="login__btn">로그인</button>
+      </form>
     </div>
   );
 };

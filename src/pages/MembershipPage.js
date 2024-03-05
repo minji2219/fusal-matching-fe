@@ -90,8 +90,12 @@ const MembershipPage = () => {
       tel: phone,
       email: email,
     };
-    await apiPost("teams/new", postData);
-    navigate("/login");
+    try {
+      await apiPost("teams/new", postData);
+      navigate("/login");
+    } catch (e) {
+      console.log("server error");
+    }
   };
   return (
     // TODO:폼에 넣기(로그인도)

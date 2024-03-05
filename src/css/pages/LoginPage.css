@@ -25,17 +25,7 @@
   align-items: center;
 }
 .login__btns {
-  margin-left: 300px;
-}
-.membership__btn,
-.find__btn {
-  background-color: transparent;
-  color: blue;
-}
-.membership__btn:hover,
-.find__btn :hover {
-  text-decoration: underline;
-  color: rgb(44, 44, 243);
+  margin-left: 280px;
 }
 .login__btn {
   display: block;
