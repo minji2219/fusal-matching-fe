@@ -21,7 +21,7 @@ const StadiumList = ({
 }) => {
   return (
     <div className="stadium__card">
-      <ImgSwiper width={320} height={250} images={images} />
+      <ImgSwiper width={"320px"} height={"250px"} images={images} />
       <div className="stadium__description">
         <div className="stadium__head">
           <div className="stadium__name">

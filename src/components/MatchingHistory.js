@@ -89,7 +89,9 @@ const MatchingHistory = ({ matchingRecords, teamFetch }) => {
   return (
     <div>
       <div className="mypage__icon">
-        <span class="material-symbols-outlined">indeterminate_check_box</span>
+        <span className="material-symbols-outlined">
+          indeterminate_check_box
+        </span>
         현재 매칭 내역
       </div>
       <hr />
@@ -109,7 +111,7 @@ const MatchingHistory = ({ matchingRecords, teamFetch }) => {
       </ul>
 
       <div className="mypage__icon">
-        <span class="material-symbols-outlined">select_check_box</span>
+        <span className="material-symbols-outlined">select_check_box</span>
         지난 매칭 내역
       </div>
       <hr />

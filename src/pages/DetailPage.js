@@ -34,7 +34,7 @@ const DetailPage = () => {
 
   return (
     <div className="center">
-      <ImgSwiper width={1300} height={400} images={images} />
+      <ImgSwiper width={"100%"} height={400} images={images} />
       <hr />
       <div className="info">
         <div className="info__description">

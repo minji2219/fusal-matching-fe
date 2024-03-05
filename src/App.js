@@ -19,6 +19,8 @@ const Layout = () => {
 };
 function App() {
   const accessToken = localStorage.getItem("access_token");
+
+  console.log(accessToken);
   return (
     <div className="App">
       <link
@@ -30,13 +32,18 @@ function App() {
           <Route index element={<ListPage />} />
           <Route path="/info/:index" element={<DetailPage />} />
           <Route path="/reserve" element={<ReservePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/membership" element={<MembershipPage />} />
-          <Route path="/pwfind" element={<PwFindPage />} />
           {accessToken ? (
-            <Route path="/mypage" element={<MyPage />} />
+            <>
+              <Route path="/mypage" element={<MyPage />} />{" "}
+              <Route path="*" element={<Navigate replace to="/" />} />
+            </>
           ) : (
-            <Route path="*" element={<Navigate replace to="/" />} />
+            <>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/membership" element={<MembershipPage />} />
+              <Route path="/pwfind" element={<PwFindPage />} />
+              <Route path="*" element={<Navigate replace to="/" />} />
+            </>
           )}
         </Route>
       </Routes>

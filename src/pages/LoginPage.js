@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import "../css/pages/LoginPage.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { apiPost } from "../helper/api.js";
 
 const LoginPage = () => {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
   const [loginErrDisplay, setLoginErrDisplay] = useState("none");
-  const navigate = useNavigate();
 
   const login = async (e) => {
     e.preventDefault();
@@ -19,7 +18,7 @@ const LoginPage = () => {
       const data = await apiPost("teams/login", postData);
       localStorage.setItem("access_token", data.accessToken);
       localStorage.setItem("userId", data.id);
-      navigate("/");
+      window.location.replace("/");
     } catch (e) {
       setLoginErrDisplay("block");
     }
