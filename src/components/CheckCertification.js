@@ -48,6 +48,7 @@ const CheckCertification = ({ setNextBtn }) => {
           person
         </span>
         <input
+          type="text"
           placeholder="팀 아이디"
           value={id}
           onChange={(e) => setId(e.target.value)}
@@ -61,6 +62,7 @@ const CheckCertification = ({ setNextBtn }) => {
           email
         </span>
         <input
+          type="text"
           placeholder="주장 이메일"
           value={email}
           onChange={(e) => {
@@ -79,6 +81,7 @@ const CheckCertification = ({ setNextBtn }) => {
           lock
         </span>
         <input
+          type="text"
           placeholder="인증번호 입력"
           value={certificationNum}
           onChange={(e) => {

@@ -1,5 +1,6 @@
 .mypage__toggle {
-  width: 100%;
+  width: 80%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,8 +8,6 @@
   padding: 30px 0;
   background-color: #f5f5f5;
   border-radius: 30px 30px 0 0;
-  position: fixed;
-  bottom: 0;
 }
 .toggle__btn {
   width: 100px;
@@ -21,12 +20,33 @@
   display: flex;
   align-items: center;
   gap: 100px;
-  margin: 0 50px;
+  margin: 0 20px;
 }
 .mypage__toggle .review__head {
   border-bottom: 1px solid gray;
   padding-bottom: 3px;
   margin-bottom: 30px;
+}
+.review__grade {
+  display: flex;
+  align-items: center;
+}
+input[type="checkbox"] {
+  all: initial;
+  appearance: none;
+}
+input[type="checkbox"]::after {
+  content: "☆";
+}
+input[type="checkbox"]:checked::after {
+  content: "⭐";
+}
+
+input[type="checkbox"]:has(~ input[type="checkbox"]:checked)::after {
+  content: "⭐";
+}
+input[type="checkbox"]:checked ~ input[type="checkbox"]::after {
+  content: "☆";
 }
 .review__mark {
   background-color: #4287ee;
@@ -71,6 +91,7 @@
   border-radius: 50%;
   background-color: #d9d9d9;
   border: none;
+  cursor: pointer;
 }
 .input__radio:checked {
   background-color: #4287ee;
@@ -96,11 +117,9 @@
 /* copyright */
 .mypage__copyright {
   background-color: #dee7f340;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
   font-size: 1.2rem;
   padding: 20px 30px;
+  margin: 0;
   line-height: 2rem;
 }
 .copyright__title {

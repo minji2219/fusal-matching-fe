@@ -16,6 +16,10 @@
     color: #4287ee;
   }
 }
+.now-matching::-webkit-scrollbar,
+.future-matching::-webkit-scrollbar {
+  display: none;
+}
 .matching__list--item {
   margin-right: 3px;
 }

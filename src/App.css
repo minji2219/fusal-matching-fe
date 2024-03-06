@@ -24,7 +24,8 @@ a {
   max-width: 80%;
   margin: auto;
 }
-input {
+input[type="text"],
+input[type="password"] {
   padding-left: 15px;
   margin-left: 10px;
   outline: none;

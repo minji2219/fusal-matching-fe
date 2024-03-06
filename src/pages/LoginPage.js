@@ -36,6 +36,7 @@ const LoginPage = () => {
             person
           </span>
           <input
+            type="text"
             placeholder="팀 아이디"
             value={id}
             onChange={(e) => setId(e.target.value)}

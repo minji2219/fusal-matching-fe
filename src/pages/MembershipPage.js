@@ -111,6 +111,7 @@ const MembershipPage = () => {
             person
           </span>
           <input
+            type="text"
             placeholder="팀 아이디"
             style={{ color: `${idTextColor}` }}
             onChange={(e) => {
@@ -170,6 +171,7 @@ const MembershipPage = () => {
             sports_soccer
           </span>
           <input
+            type="text"
             placeholder="팀명"
             value={teamName}
             onChange={(e) => {
@@ -186,6 +188,7 @@ const MembershipPage = () => {
             badge
           </span>
           <input
+            type="text"
             placeholder="주장 이름"
             value={captainName}
             onChange={(e) => {
@@ -202,6 +205,7 @@ const MembershipPage = () => {
             call
           </span>
           <input
+            type="text"
             placeholder="주장 전화번호"
             value={phone}
             onChange={(e) => {
@@ -218,6 +222,7 @@ const MembershipPage = () => {
             email
           </span>
           <input
+            type="text"
             placeholder="주장 이메일"
             value={email}
             onChange={(e) => {
