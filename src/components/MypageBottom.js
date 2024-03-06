@@ -66,16 +66,8 @@ const RadioPoint = ({ handlePoint }) => {
   );
 };
 const MypageBottom = () => {
-  const {
-    futureBD,
-    setFutureBD,
-    BDtitle,
-    matchingId,
-    oppositeTeam,
-    stadium,
-    evalOpposite,
-    evalStadium,
-  } = useContext(FutureBDContext);
+  const { futureBD, setFutureBD, matchingId, oppositeTeam } =
+    useContext(FutureBDContext);
   const [stadiumReview, setStadiumReview] = useState();
   const [manner, setManner] = useState();
   const [skill, setSkill] = useState();
@@ -133,7 +125,6 @@ const MypageBottom = () => {
             <div className="team__review">
               <div className="review__head">
                 <span className="review__mark">팀 리뷰</span>
-                <span style={{ fontWeight: "700" }}>{BDtitle}</span>
               </div>
 
               <div className="team__review--content">

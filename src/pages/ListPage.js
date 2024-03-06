@@ -14,7 +14,6 @@ const ListPage = () => {
   useEffect(() => {
     fetchStadiums();
   }, []);
-
   return (
     <div className="center">
       <div>구장의 자세한 정보가 궁금하다면? click !</div>
@@ -23,7 +22,7 @@ const ListPage = () => {
           <StadiumList
             key={stadium.id}
             images={stadium.images}
-            norest={stadium.norest}
+            norest={stadium.noRest}
             parking={stadium.parking}
             shower={stadium.shower}
             id={stadium.id}

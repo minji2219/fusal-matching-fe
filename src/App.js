@@ -19,8 +19,6 @@ const Layout = () => {
 };
 function App() {
   const accessToken = localStorage.getItem("access_token");
-
-  console.log(accessToken);
   return (
     <div className="App">
       <link

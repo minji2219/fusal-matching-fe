@@ -32,15 +32,7 @@ const MatchingList = ({ matching }) => {
 };
 const MatchingHistory = ({ matchingRecords, teamFetch }) => {
   const userId = localStorage.getItem("userId");
-  const {
-    setBDTitle,
-    setFutureBD,
-    setMatchingId,
-    setOppositeTeam,
-    setStadium,
-    setEvalOpposite,
-    setEvalStadium,
-  } = useContext(FutureBDContext);
+  const { setFutureBD } = useContext(FutureBDContext);
   let nowMatchingRecord = [];
   let futureMatchingRecord = [];
 
@@ -119,15 +111,9 @@ const MatchingHistory = ({ matchingRecords, teamFetch }) => {
         {futureMatchingRecord.map((matching) => (
           <li className="matching__list" key={matching.matchingId}>
             <MatchingList matching={matching} />
-            {matching.myTeamDto.evalOpposite ||
-            matching.myTeamDto.evalStadium ? (
-              <button
-                className="review--read__btn"
-                onClick={() => setFutureBD(true)}
-              >
-                리뷰 보기
-              </button>
-            ) : (
+            {!(
+              matching.myTeamDto.evalOpposite && matching.myTeamDto.evalStadium
+            ) && (
               <button
                 className="review--write__btn"
                 onClick={() => setFutureBD(true)}
