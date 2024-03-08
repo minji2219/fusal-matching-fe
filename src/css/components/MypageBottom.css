@@ -30,23 +30,16 @@
 .review__grade {
   display: flex;
   align-items: center;
+  margin-left: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
-input[type="checkbox"] {
-  all: initial;
-  appearance: none;
+.star {
+  margin: 0 3px;
+  cursor: pointer;
 }
-input[type="checkbox"]::after {
-  content: "☆";
-}
-input[type="checkbox"]:checked::after {
-  content: "⭐";
-}
-
-input[type="checkbox"]:has(~ input[type="checkbox"]:checked)::after {
-  content: "⭐";
-}
-input[type="checkbox"]:checked ~ input[type="checkbox"]::after {
-  content: "☆";
+.star--checked {
+  color: orange;
 }
 .review__mark {
   background-color: #4287ee;
@@ -69,6 +62,11 @@ input[type="checkbox"]:checked ~ input[type="checkbox"]::after {
 .review__btn {
   background-color: #4287ee;
   color: white;
+}
+.review__btn:disabled {
+  background-color: gray;
+  opacity: 1;
+  cursor: none;
 }
 .team__review--content {
   display: flex;

@@ -117,7 +117,27 @@ const MypageBottom = () => {
             <div className="stadium__review">
               <div className="review__head">
                 <span className="review__mark">구장 리뷰</span>
-                <span style={{ fontWeight: "700" }}>{BDtitle}</span>
+                <div className="review__grade">
+                  평점:
+                  {[...Array(starChecked)].map((a, i) => (
+                    <div
+                      className="star star--checked"
+                      key={i}
+                      onClick={() => setStarChecked(i + 1)}
+                    >
+                      ★
+                    </div>
+                  ))}
+                  {[...Array(5 - starChecked)].map((a, i) => (
+                    <div
+                      className="star"
+                      key={i}
+                      onClick={() => setStarChecked(starChecked + i + 1)}
+                    >
+                      ☆
+                    </div>
+                  ))}
+                </div>
               </div>
               <div className="stadium__review--writer">
                 <textarea
@@ -127,7 +147,11 @@ const MypageBottom = () => {
                     setStadiumReview(e.target.value);
                   }}
                 />
-                <button className="review__btn" onClick={writeStadiumReview}>
+                <button
+                  className="review__btn"
+                  disabled={stadiumEvalState}
+                  onClick={writeStadiumReview}
+                >
                   등록
                 </button>
               </div>
@@ -166,7 +190,11 @@ const MypageBottom = () => {
                     </div>
                   </div>
                 </div>
-                <button className="review__btn" onClick={writeTeamReview}>
+                <button
+                  className="review__btn"
+                  disabled={oppositeTeamEvalState}
+                  onClick={writeTeamReview}
+                >
                   등록
                 </button>
               </div>

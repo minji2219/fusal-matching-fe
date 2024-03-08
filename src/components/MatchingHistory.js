@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import "../css/components/MatchingHistory.css";
 import { apiPost } from "../helper/api";
-import { FutureBDContext } from "../context/FutureBreakDownContext";
+import { PastHistoryContext } from "../context/PastHistoryContext";
+
 const MatchingList = ({ matching }) => {
   return (
     <span>
@@ -32,9 +33,15 @@ const MatchingList = ({ matching }) => {
 };
 const MatchingHistory = ({ matchingRecords, teamFetch }) => {
   const userId = localStorage.getItem("userId");
-  const { setFutureBD } = useContext(FutureBDContext);
+  const {
+    setPastHistory,
+    setMatchingId,
+    setOppositeTeamId,
+    setOppositeTeamEvalState,
+    setStadiumEvalState,
+  } = useContext(PastHistoryContext);
   let nowMatchingRecord = [];
-  let futureMatchingRecord = [];
+  let pastMatchingRecord = [];
 
   const today = new Date();
   const year = today.getFullYear();
@@ -60,12 +67,12 @@ const MatchingHistory = ({ matchingRecords, teamFetch }) => {
       } else if (matchingMonth === month) {
         if (matchingDay > day) {
           nowMatchingRecord?.push(matching.matchingRecord);
-        } else futureMatchingRecord?.push(matching.matchingRecord);
+        } else pastMatchingRecord?.push(matching.matchingRecord);
       } else {
-        futureMatchingRecord?.push(matching.matchingRecord);
+        pastMatchingRecord?.push(matching.matchingRecord);
       }
     } else {
-      futureMatchingRecord?.push(matching.matchingRecord);
+      pastMatchingRecord?.push(matching.matchingRecord);
     }
   });
   const cancelMatching = async (matchingId) => {
@@ -77,6 +84,14 @@ const MatchingHistory = ({ matchingRecords, teamFetch }) => {
       await apiPost("matching/cancel", postData);
       teamFetch();
     }
+  };
+  const handleReviewBtn = (matching) => {
+    // console.log(matching);
+    setPastHistory(true);
+    setMatchingId(matching.matchingId);
+    setOppositeTeamId(matching.oppositeTeamDto?.id);
+    setOppositeTeamEvalState(matching.myTeamDto?.evalOpposite);
+    setStadiumEvalState(matching.myTeamDto?.evalStadium);
   };
   return (
     <div>
@@ -107,8 +122,8 @@ const MatchingHistory = ({ matchingRecords, teamFetch }) => {
         지난 매칭 내역
       </div>
       <hr />
-      <ul className="future-matching">
-        {futureMatchingRecord.map((matching) => (
+      <ul className="past-matching">
+        {pastMatchingRecord.map((matching) => (
           <li className="matching__list" key={matching.matchingId}>
             <MatchingList matching={matching} />
             {!(
@@ -116,7 +131,7 @@ const MatchingHistory = ({ matchingRecords, teamFetch }) => {
             ) && (
               <button
                 className="review--write__btn"
-                onClick={() => setFutureBD(true)}
+                onClick={() => handleReviewBtn(matching)}
               >
                 리뷰 달기
               </button>
