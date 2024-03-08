@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FutureBDContext } from "../context/FutureBreakDownContext";
+import { PastHistoryContext } from "../context/PastHistoryContext";
 import "../css/components/MypageBottom.css";
 import { apiPost } from "../helper/api";
 
@@ -66,16 +66,27 @@ const RadioPoint = ({ handlePoint }) => {
   );
 };
 const MypageBottom = () => {
-  const { futureBD, setFutureBD, matchingId, oppositeTeam } =
-    useContext(FutureBDContext);
-  const [stadiumReview, setStadiumReview] = useState();
+  const {
+    pastHistory,
+    setPastHistory,
+    matchingId,
+    oppositeTeamId,
+    oppositeTeamEvalState,
+    stadiumEvalState,
+  } = useContext(PastHistoryContext);
+  const [stadiumReview, setStadiumReview] = useState("");
   const [manner, setManner] = useState();
   const [skill, setSkill] = useState();
+  const [starChecked, setStarChecked] = useState(0);
 
   const writeStadiumReview = async () => {
+    if (starChecked === 0 || stadiumReview === "") {
+      alert("평점과 리뷰를 모두 등록해주세요.");
+      return;
+    }
     const postData = {
       teamMatchingId: matchingId,
-      gpa: 1,
+      gpa: starChecked,
       review: stadiumReview,
     };
     await apiPost("review/write-stadium", postData);
@@ -84,7 +95,7 @@ const MypageBottom = () => {
   const writeTeamReview = async () => {
     const postData = {
       teamMatchingId: matchingId,
-      oppositeTeamId: oppositeTeam,
+      oppositeTeamId: oppositeTeamId,
       manner: Number(manner),
       skill: Number(skill),
     };
@@ -93,12 +104,12 @@ const MypageBottom = () => {
 
   return (
     <>
-      {futureBD ? (
+      {pastHistory ? (
         <div className="mypage__toggle">
           <div
             className="toggle__btn"
             onClick={() => {
-              setFutureBD(false);
+              setPastHistory(false);
             }}
           ></div>
 

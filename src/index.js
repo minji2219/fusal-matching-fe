@@ -4,15 +4,15 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import StadiumInfoProvider from "./context/StadiumInfoContext";
-import FutureBDProvider from "./context/FutureBreakDownContext";
+import PastHistoryProvider from "./context/PastHistoryContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <StadiumInfoProvider>
-      <FutureBDProvider>
+      <PastHistoryProvider>
         <App />
-      </FutureBDProvider>
+      </PastHistoryProvider>
     </StadiumInfoProvider>
   </BrowserRouter>
 );

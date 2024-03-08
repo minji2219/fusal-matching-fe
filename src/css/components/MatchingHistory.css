@@ -7,7 +7,7 @@
     color: orange;
   }
 }
-.future-matching {
+.past-matching {
   height: 150px;
   overflow-y: scroll;
   padding: 0 0 0 20px;
@@ -17,7 +17,7 @@
   }
 }
 .now-matching::-webkit-scrollbar,
-.future-matching::-webkit-scrollbar {
+.past-matching::-webkit-scrollbar {
   display: none;
 }
 .matching__list--item {
@@ -43,12 +43,12 @@
   border: 1px solid orange;
   background-color: orange;
 }
-.future-matching .review--write__btn {
+.past-matching .review--write__btn {
   margin: 0 5px;
   color: white;
   background-color: #4287ee;
 }
-.future-matching .review--read__btn {
+.past-matching .review--read__btn {
   margin: 0 5px;
   color: #4287ee;
   background-color: white;
