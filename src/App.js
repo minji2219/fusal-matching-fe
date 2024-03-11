@@ -8,6 +8,7 @@ import MyPage from "./pages/MyPage";
 import LoginPage from "./pages/LoginPage";
 import MembershipPage from "./pages/MembershipPage";
 import PwFindPage from "./pages/PwfindPage";
+import OperatorPage from "./pages/OperatorPage";
 
 const Layout = () => {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route index element={<ListPage />} />
           <Route path="/info/:index" element={<DetailPage />} />
           <Route path="/reserve" element={<ReservePage />} />
+          <Route path="/operator" element={<OperatorPage />} />
           {accessToken ? (
             <>
               <Route path="/mypage" element={<MyPage />} />{" "}

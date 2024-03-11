@@ -1,0 +1,22 @@
+.operator__top {
+  display: flex;
+  gap: 40px;
+}
+.stadium__cards {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.new-stadium__card {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.plus__stadium {
+  opacity: 0.7;
+  cursor: pointer;
+}

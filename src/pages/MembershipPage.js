@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { apiPost } from "../helper/api";
 
 const MembershipPage = () => {
+  const [memberSort, setMemberSort] = useState("1");
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
   const [checkpw, setCheckpw] = useState("");
@@ -26,7 +27,7 @@ const MembershipPage = () => {
       return;
     }
     const postData = {
-      idOrNick: id,
+      idORNick: id,
     };
     try {
       const data = await apiPost("teams/check-id", postData);
@@ -95,12 +96,38 @@ const MembershipPage = () => {
       console.log("server error");
     }
   };
+  const handleRadio = (e) => {
+    setMemberSort(e.target.value); //주장=1, 운영자=2
+  };
   return (
     <div className="membership__box">
       <div className="memebership__head">회원가입</div>
       <form className="membership__content" onSubmit={handleMembership}>
         <div className="membership__ment">
           광주에 있는 풋살장을 이용해보세요 !
+        </div>
+        <div>
+          <label className="membership__sort">
+            <input
+              type="radio"
+              name="sort"
+              className="memebership__radio"
+              value={1}
+              defaultChecked
+              onChange={handleRadio}
+            />
+            주장
+          </label>
+          <label className="membership__sort">
+            <input
+              type="radio"
+              name="sort"
+              className="memebership__radio"
+              value={2}
+              onChange={handleRadio}
+            />
+            운영자
+          </label>
         </div>
         <div className="input__icon input--membership">
           <span
@@ -111,7 +138,7 @@ const MembershipPage = () => {
           </span>
           <input
             type="text"
-            placeholder="팀 아이디"
+            placeholder="아이디"
             style={{ color: `${idTextColor}` }}
             onChange={(e) => {
               setId(e.target.value);
@@ -136,7 +163,7 @@ const MembershipPage = () => {
             lock
           </span>
           <input
-            placeholder="팀 비밀번호 입력"
+            placeholder="비밀번호"
             type="password"
             value={pw}
             onChange={(e) => {
@@ -144,7 +171,6 @@ const MembershipPage = () => {
             }}
           />
         </div>
-
         <div className="input__icon">
           <span
             style={{ fontSize: "30px" }}
@@ -153,7 +179,7 @@ const MembershipPage = () => {
             lock
           </span>
           <input
-            placeholder="팀 비밀번호 확인"
+            placeholder="비밀번호 확인"
             type="password"
             value={checkpw}
             onChange={(e) => {
@@ -162,23 +188,24 @@ const MembershipPage = () => {
           />
         </div>
 
-        <div className="input__icon">
-          <span
-            style={{ fontSize: "30px" }}
-            className="material-symbols-outlined"
-          >
-            sports_soccer
-          </span>
-          <input
-            type="text"
-            placeholder="팀명"
-            value={teamName}
-            onChange={(e) => {
-              setTeamName(e.target.value);
-            }}
-          />
-        </div>
-
+        {memberSort === "1" && (
+          <div className="input__icon">
+            <span
+              style={{ fontSize: "30px" }}
+              className="material-symbols-outlined"
+            >
+              sports_soccer
+            </span>
+            <input
+              type="text"
+              placeholder="팀명"
+              value={teamName}
+              onChange={(e) => {
+                setTeamName(e.target.value);
+              }}
+            />
+          </div>
+        )}
         <div className="input__icon">
           <span
             style={{ fontSize: "30px" }}
@@ -188,14 +215,13 @@ const MembershipPage = () => {
           </span>
           <input
             type="text"
-            placeholder="주장 이름"
+            placeholder="이름"
             value={captainName}
             onChange={(e) => {
               setCaptainName(e.target.value);
             }}
           />
         </div>
-
         <div className="input__icon">
           <span
             style={{ fontSize: "30px" }}
@@ -205,14 +231,13 @@ const MembershipPage = () => {
           </span>
           <input
             type="text"
-            placeholder="주장 전화번호"
+            placeholder="전화번호"
             value={phone}
             onChange={(e) => {
               setPhone(e.target.value);
             }}
           />
         </div>
-
         <div className="input__icon">
           <span
             style={{ fontSize: "30px" }}
@@ -222,7 +247,7 @@ const MembershipPage = () => {
           </span>
           <input
             type="text"
-            placeholder="주장 이메일"
+            placeholder="이메일"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);

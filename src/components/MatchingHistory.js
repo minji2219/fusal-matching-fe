@@ -3,7 +3,7 @@ import "../css/components/MatchingHistory.css";
 import { apiPost } from "../helper/api";
 import { PastHistoryContext } from "../context/PastHistoryContext";
 
-const MatchingList = ({ matching }) => {
+export const MatchingList = ({ matching }) => {
   return (
     <span>
       <span className="matching__list--item">{matching.matchingDate}</span>

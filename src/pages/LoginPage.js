@@ -37,7 +37,7 @@ const LoginPage = () => {
           </span>
           <input
             type="text"
-            placeholder="팀 아이디"
+            placeholder="아이디"
             value={id}
             onChange={(e) => setId(e.target.value)}
           />
@@ -51,7 +51,7 @@ const LoginPage = () => {
           </span>
           <input
             type="password"
-            placeholder="팀 비밀번호"
+            placeholder="비밀번호"
             value={pw}
             onChange={(e) => setPw(e.target.value)}
           />

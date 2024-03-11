@@ -24,6 +24,9 @@
   font-weight: 700;
   color: gray;
 }
+.membership__sort {
+  margin-right: 10px;
+}
 .input--membership {
   position: relative;
 }
