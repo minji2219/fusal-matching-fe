@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const baseUrl = "https://fusal-matching-backend-7fbb15cd8430.herokuapp.com/";
+const baseUrl = "https://986b-121-147-100-85.ngrok-free.app/";
 export const apiGet = async (url) => {
   try {
     const result = await axios.get(baseUrl + url, {
       headers: {
         "Content-Type": `application/json`,
+        "ngrok-skip-browser-warning": "69420",
       },
     });
     return result.data;
@@ -20,6 +21,7 @@ export const apiPost = async (url, postData) => {
       ...postData,
       headers: {
         "Content-Type": `application/json`,
+        "ngrok-skip-browser-warning": "69420",
       },
     });
     return result.data;
