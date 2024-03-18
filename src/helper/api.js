@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseUrl = "https://fusal-matching-backend-7fbb15cd8430.herokuapp.com/";
+const baseUrl =
+  "https://port-0-fusal-matching-backend-qxz2eltwz9onl.sel5.cloudtype.app/";
 export const apiGet = async (url) => {
   try {
     const result = await axios.get(baseUrl + url, {
